@@ -1,14 +1,23 @@
 def count_rounds(numbers):
-    rounds = 1
-    current_max = numbers[0]
+    positions = [0] * (len(numbers) + 1)
 
-    for num in numbers[1:]:
-        if num < current_max:
-            rounds += 1
-        current_max = max(current_max, num)
+    for i in range(len(numbers)):
+        positions[numbers[i]] = i
 
-    return rounds
+    print(positions)
+    rounds = []
 
+    small_round = [1]
+
+    for i in range(2, len(numbers) + 1):
+        if positions[i] > positions[i - 1]:
+            small_round.append(i)
+        else:
+            rounds.append(small_round)
+            small_round = [i]
+    rounds.append(small_round)
+
+    return len(rounds)
 
 if __name__ == "__main__":
     print(count_rounds([1, 2, 3, 4]))  # 1

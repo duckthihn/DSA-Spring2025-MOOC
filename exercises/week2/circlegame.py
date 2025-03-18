@@ -1,5 +1,14 @@
 def find_order(n):
-    # TODO
+    circle = list(range(1,n+1))
+    leaving_order = []
+    i = 0
+
+    while circle: # update circle every loop
+        i = (i+1) % len(circle)
+        leaving_order.append(circle.pop(i))
+
+    return leaving_order
+
 
 if __name__ == "__main__":
     print(find_order(1)) # [1]

@@ -13,6 +13,6 @@ print(f"{time.time() - start_time} seconds")
 # Measure deletions time
 start_time = time.time()
 for _ in range(n):
-    ls.pop(0)
+    ls.pop() # delete last element
 
 print(f"{time.time() - start_time} seconds")

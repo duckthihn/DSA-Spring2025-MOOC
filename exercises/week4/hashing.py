@@ -1,5 +1,14 @@
 def hash_value(string):
-    # TODO
+    A = 23
+    M = 2**32
+    hash_val = 0
+
+    for i, char in enumerate(string):
+        char_val = ord(char) - ord("a")
+        power = len(string) - i - 1
+        hash_val += (char_val * A**power)
+
+    return hash_val % M
 
 if __name__ == "__main__":
     print(hash_value("abc")) # 25
